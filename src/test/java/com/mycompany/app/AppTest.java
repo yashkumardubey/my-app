@@ -1,27 +1,20 @@
 package com.mycompany.app;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
-
     @Test
-    public void testPerformOperation() {
-        assertEquals(15.0, App.performOperation(5, 10, '+'));
-        assertEquals(-5.0, App.performOperation(5, 10, '-'));
-        assertEquals(50.0, App.performOperation(5, 10, '*'));
-        assertEquals(0.5, App.performOperation(5, 10, '/'));
+    public void testPrintHelloWorld() {
+        // Redirect the output stream to capture the output
+        java.io.ByteArrayOutputStream outContent = new java.io.ByteArrayOutputStream();
+        System.setOut(new java.io.PrintStream(outContent));
 
-        // Test for division by zero
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            App.performOperation(5, 0, '/');  // This should throw an exception
-        });
-        assertEquals("Division by zero is not allowed.", exception.getMessage());
+        // Call the main method of App
+        App.main(null);
 
-        // Test for invalid operator
-        exception = assertThrows(IllegalArgumentException.class, () -> {
-            App.performOperation(5, 10, '%');  // This should throw an exception
-        });
-        assertEquals("Invalid operator! Please use +, -, *, or /.", exception.getMessage());
+        // Check the output
+        assertEquals("Hello, World!\n", outContent.toString());
     }
 }
