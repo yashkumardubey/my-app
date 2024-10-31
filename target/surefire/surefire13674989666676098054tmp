@@ -1,0 +1,23 @@
+#surefire
+#Thu Oct 31 14:22:57 IST 2024
+childDelegation=false
+classPathUrl.0=/home/yash/Desktop/my-app/my-app/target/test-classes
+classPathUrl.1=/home/yash/Desktop/my-app/my-app/target/classes
+enableAssertions=true
+excludes0=**/*$*
+failIfNoTests=false
+includes0=**/Test*.java
+includes1=**/*Test.java
+includes2=**/*TestCase.java
+isTrimStackTrace=true
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+reportsDirectory=/home/yash/Desktop/my-app/my-app/target/surefire-reports
+runOrder=filesystem
+runStatisticsFile=/home/yash/Desktop/my-app/my-app/.surefire-D622B026DF58F87612FFCACAC65E3EDED6969CD7
+surefireClassPathUrl.0=/home/yash/.m2/repository/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.jar
+surefireClassPathUrl.1=/home/yash/.m2/repository/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.jar
+tc.0=com.mycompany.app.AppTest
+testClassesDirectory=/home/yash/Desktop/my-app/my-app/target/test-classes
+testSuiteDefinitionTestSourceDirectory=/home/yash/Desktop/my-app/my-app/src/test/java
+useManifestOnlyJar=true
+useSystemClassLoader=true
