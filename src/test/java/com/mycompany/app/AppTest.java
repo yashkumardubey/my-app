@@ -1,13 +1,30 @@
-package com.mycompany.app; // Package declaration
+package com.mycompany.app;
 
-import org.junit.jupiter.api.Test; // Import JUnit test annotations
-import static org.junit.jupiter.api.Assertions.assertEquals; // Import assertions
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 public class AppTest {
-    
-    @Test // Annotation to indicate this is a test method
-    public void testApp() {
-        // Sample assertion to check output
-        assertEquals("Hello, World!", "Hello, World!"); // Check if the output is as expected
+    @Test
+    public void testHelloWorld() {
+        String expectedOutput = "Hello, World!";
+        
+        // Capture the output of the main method
+        String output = captureOutput(() -> App.main(new String[] {}));
+        
+        assertEquals(expectedOutput, output.trim());
+    }
+
+    private String captureOutput(Runnable runnable) {
+        // Redirect System.out to capture the output
+        java.io.ByteArrayOutputStream outputStream = new java.io.ByteArrayOutputStream();
+        System.setOut(new java.io.PrintStream(outputStream));
+        
+        runnable.run();
+        
+        // Restore original System.out
+        System.setOut(System.out);
+        
+        return outputStream.toString();
     }
 }
