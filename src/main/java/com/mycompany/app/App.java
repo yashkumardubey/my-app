@@ -23,39 +23,35 @@ public class App {
         System.out.print("Enter second number: ");
         double num2 = scanner.nextDouble();
 
-        // Perform the chosen operation
-        double result = 0;
-        boolean validOperation = true;
+        // Perform the chosen operation and display the result
+        double result = performOperation(num1, num2, operator);
         
-        switch (operator) {
-            case '+':
-                result = num1 + num2;
-                break;
-            case '-':
-                result = num1 - num2;
-                break;
-            case '*':
-                result = num1 * num2;
-                break;
-            case '/':
-                if (num2 != 0) {
-                    result = num1 / num2;
-                } else {
-                    System.out.println("Error: Division by zero is not allowed.");
-                    validOperation = false;
-                }
-                break;
-            default:
-                System.out.println("Invalid operator! Please use +, -, *, or /.");
-                validOperation = false;
-        }
-
-        // Display the result if the operation was valid
-        if (validOperation) {
+        if (result != Double.NaN) {
             System.out.println("Result: " + result);
         }
         
         scanner.close();
     }
-}
 
+    // Method to perform the calculation
+    public static double performOperation(double num1, double num2, char operator) {
+        switch (operator) {
+            case '+':
+                return num1 + num2;
+            case '-':
+                return num1 - num2;
+            case '*':
+                return num1 * num2;
+            case '/':
+                if (num2 != 0) {
+                    return num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    return Double.NaN; // Return NaN for invalid operation
+                }
+            default:
+                System.out.println("Invalid operator! Please use +, -, *, or /.");
+                return Double.NaN; // Return NaN for invalid operation
+        }
+    }
+}
